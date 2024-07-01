@@ -1,5 +1,4 @@
 package org.example;
-
 class Player {
     private char marker;// X or O
 
