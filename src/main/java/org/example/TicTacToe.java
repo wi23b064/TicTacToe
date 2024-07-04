@@ -2,7 +2,7 @@ package org.example;
 
 public class TicTacToe {
 
-  private Player player1;
+    private Player player1;
     private Player player2;
     private Player currentPlayer;
     private Board board;
@@ -14,9 +14,13 @@ public class TicTacToe {
     public void start() {
        
     }
+ 
+    private boolean hasWinner() {
+       
+        return false;
+    }
 
   public static void main(String[] args) {
       
     }
-
 }
