@@ -2,6 +2,10 @@ package org.example;
 
 public class TicTacToe {
 
+    public void switchCurrentPlayer(){
+    }
+
+
     private Player player1;
     private Player player2;
     private Player currentPlayer;
@@ -20,7 +24,7 @@ public class TicTacToe {
         return false;
     }
 
-  public static void main(String[] args) {
-      
+    public static void main(String[] args) {
+
     }
 }

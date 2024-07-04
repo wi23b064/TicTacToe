@@ -1,4 +1,14 @@
 package org.example;
+class Player {
+    private char marker;// X or O
 
-public class Player {
+    public Player(char marker) {
+        //constructor
+        this.marker = marker;
+    }
+
+    public char getMarker() {
+        //getter
+        return marker;
+    }
 }
