@@ -1,9 +1,26 @@
 package org.example;
 
 public class TicTacToe {
-  
-  private boolean hasWinner() {
+
+    private Player player1;
+    private Player player2;
+    private Player currentPlayer;
+    private Board board;
+
+    public TicTacToe() {
+        
+    }
+
+    public void start() {
+       
+    }
+ 
+    private boolean hasWinner() {
        
         return false;
+    }
+
+  public static void main(String[] args) {
+      
     }
 }
