@@ -16,8 +16,7 @@ public class TicTacToe {
     }
  
     private boolean hasWinner() {
-       
-        return false;
+               return board.checkBoard(currentPlayer.getMarker());
     }
 
   public static void main(String[] args) {
