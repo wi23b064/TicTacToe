@@ -1,18 +1,16 @@
 package org.example;
+import java.util.Arrays;
 
 public class Board {
   
-    private char[][] cells = new char[3][3];
+    private final char[][] cells = new char[3][3];
   
     public Board() {
         clear();
     }
 
     public boolean isCellEmpty(int x, int y) {
-        if (x < 0 || x >= cells.length || y < 0 || y >= cells[0].length) {
-            throw new IllegalArgumentException("Coordinates (x, y) are out of bounds.");
-        } else return cells[x][y] == '*'; 
-        //if cell at position (x, y) is empty (*) -> true
+        return cells[x][y] == '*';
     }
 
     public boolean isFull() {
@@ -28,11 +26,8 @@ public class Board {
     }
 
     public void clear() {
-        for (int i=0; i< cells.length; i++){
-            //and column
-            for(int j=0; j<cells[i].length;j++){
-                cells[i][j]= '*'; //when empty -> *
-            }
+        for (char[] cell : cells) {
+            Arrays.fill(cell, '*');
         }
     }
 
@@ -45,11 +40,8 @@ public class Board {
                 }
             }
             // Check diagonals
-            if ((cells[0][0] == marker && cells[1][1] == marker && cells[2][2] == marker) ||
-                    (cells[0][2] == marker && cells[1][1] == marker && cells[2][0] == marker)) {
-                return true;
-            }
-            return false;
+            return (cells[0][0] == marker && cells[1][1] == marker && cells[2][2] == marker) ||
+                (cells[0][2] == marker && cells[1][1] == marker && cells[2][0] == marker);
         }
   
     public void print() {
