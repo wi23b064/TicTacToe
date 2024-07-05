@@ -1,37 +1,46 @@
 package org.example;
+import java.util.Arrays;
 
 public class Board {
   
-    private char[][] cells = new char[3][3];
+    private final char[][] cells = new char[3][3];
   
     public Board() {
+        clear();
     }
 
     public boolean isCellEmpty(int x, int y) {
-        // returns false if position is filled
-        //return true if position is empty
-        return false;
+        return cells[x][y] == '*';
     }
 
     public boolean isFull() {
-        //to check if position or board is full
+        for (char[] row : cells) {
+            //and then each cell of each row
+            for (char cell : row) {
+                if (cell == '*') {
+                    return false;//if empty (*)-> not full
+                }
+            }
+        }
         return true;
     }
 
     public void clear() {
-        //Initializes and empties board
+        for (char[] cell : cells) {
+            Arrays.fill(cell, '*');
+        }
     }
-
-    //initializes and empties board
+  
     public void print() {
-        //board visual
+        for (char[] row : cells) {
+            System.out.print("\n|");
+            for (char cell : row) {
+                System.out.print(cell != '*' ? cell : " ");
+                System.out.print("|\n");
+            }
+            System.out.println();
+        }
     }
 
-    public void place(int x, int y, char marker){
-        //places marker (x or o) in current position  
-    }
 }
-
-
-
 
