@@ -1,4 +1,5 @@
 package org.example;
+import java.util.Scanner;
 
 public class TicTacToe {
 
@@ -22,8 +23,7 @@ public class TicTacToe {
                     switchCurrentPlayer();
                 }
             }
-        }
-    }
+      }
 
      public static void main(String[] args) {
         TicTacToe game = new TicTacToe('X', 'O');
