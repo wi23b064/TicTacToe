@@ -2,29 +2,31 @@ package org.example;
 
 public class TicTacToe {
 
-    public void switchCurrentPlayer(){
-    }
+     private boolean restartGame() {
+        System.out.println("Do you want to start a new game? \nPress 1 for yes, 0 for no: ");
+        try {
+            int input = scanner.nextInt();
+            return input==1;
+        } catch (NoSuchElementException e) {
+            System.out.println("Invalid input. Please enter 1 or 0.");
+            System.out.println("-----------------------------");
 
-
-    private Player player1;
-    private Player player2;
-    private Player currentPlayer;
-    private Board board;
-
-    public TicTacToe() {
-        
-    }
-
-    public void start() {
-       
-    }
- 
-    private boolean hasWinner() {
-       
+        } catch (IllegalStateException e) {
+            System.out.println("Scanner closed unexpectedly.");
+            System.out.println("-----------------------------");
+        }
         return false;
     }
 
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
+        TicTacToe game = new TicTacToe('X', 'O');
+        game.start();
+        if(game.restartGame())
+        {
+            game.board.clear();
+            game.start();
+
+        }
     }
 }
