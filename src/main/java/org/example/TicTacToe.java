@@ -3,6 +3,16 @@ import java.util.Scanner;
 
 public class TicTacToe {
 
+    public TicTacToe(char marker1, char marker2) {
+        player1 = new Player(marker1);
+        player2 = new Player(marker2);
+        //new ^^
+        board = new Board();
+        currentPlayer = player1;
+        scanner = new Scanner(System.in);
+        //new ^^
+    }
+
     public void start() {
         boolean start = true;
         while (start) {
