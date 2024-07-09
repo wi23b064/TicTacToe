@@ -2,52 +2,49 @@ package org.example;
 import java.util.Scanner;
 
 public class TicTacToe {
-    private Player player1;
-    private Player player2;
-    private Player currentPlayer;
-    private Board board;
-    private Scanner scanner;
-   
+    private final Player player1;
+    private final Player player2;
+    Player currentPlayer;
+    public final Board board;
+    private final Scanner scanner;
 
-    public TicTacToe(char p1marker, char p2marker) {
-        player1 = new Player(p1marker);
-        player2 = new Player(p2marker);
+
+    public TicTacToe(char marker1, char marker2) {
         board = new Board();
-        currentPlayer = player1;
+        player1 = new Player(marker1);
+        player2 = new Player(marker2);
+        currentPlayer = player1; // starts
         scanner = new Scanner(System.in);
     }
 
-private void switchCurrentPlayer() {
-        currentPlayer = (currentPlayer == player1) ? player2 : player1;
-    }
- public static void main(String[] args) {
-        TicTacToe game = new TicTacToe('X', 'O');
-    }
-}
-
-   public void start() {
-        boolean gameIsRunning = true;
-        while (gameIsRunning) {
+    public void start() {
+        boolean start = true;
+        while (start) {
             board.print();
             boolean moveMade = makeMove(currentPlayer);
             if (moveMade) {
                 if (hasWinner()) {
                     board.print();
                     System.out.println(currentPlayer.getMarker() + " wins!");
-                    gameIsRunning = false;
+                    start = false;
                 } else if (board.isFull()) {
                     board.print();
                     System.out.println("It's a draw!");
-                    gameIsRunning = false;
+                    start = false;
                 } else {
                     switchCurrentPlayer();
                 }
             }
         }
     }
-  
 
-   private boolean makeMove(Player player) {
+    void switchCurrentPlayer() {
+        currentPlayer = (currentPlayer == player1) ? player2 : player1;
+    }
+
+
+
+    private boolean makeMove(Player player) {
         System.out.println(player.getMarker() + ", enter the position you want your marker in:");
         int row = scanner.nextInt();
         int col = scanner.nextInt();
@@ -64,11 +61,15 @@ private void switchCurrentPlayer() {
 
     }
 
-    public static void main(String[] args) {
+    boolean hasWinner() {
+        //check rows, columns and diagonals
+        return board.checkBoard(currentPlayer.getMarker());
 
+    }
+
+    public static void main(String[] args) {
         TicTacToe game = new TicTacToe('X', 'O');
         game.start();
-       
     }
-  
+
 }
