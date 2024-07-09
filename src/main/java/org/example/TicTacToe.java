@@ -12,13 +12,12 @@ public class TicTacToe {
         currentPlayer = (currentPlayer == player1) ? player2 : player1;
     }
     
-     public TicTacToe(char marker1, char marker2) {
-        player1 = new Player(marker1);
-        player2 = new Player(marker2);
-        currentPlayer = player1;
+   public TicTacToe(char playerOneMarker, char playerTwoMarker) {
         board = new Board();
+        player1 = new Player(playerOneMarker);
+        player2 = new Player(playerTwoMarker);
+        currentPlayer = player1; // starts
         scanner = new Scanner(System.in);
-        
     }
 
 }
