@@ -2,14 +2,28 @@ package org.example;
 import java.util.Scanner;
 
 public class TicTacToe {
+    private Player player1;
+    private Player player2;
+    private Player currentPlayer;
+    private Board board;
+    private Scanner scanner;
+   
 
-  public TicTacToe(char playerOneMarker, char playerTwoMarker) {
+    public TicTacToe(char p1marker, char p2marker) {
+        player1 = new Player(p1marker);
+        player2 = new Player(p2marker);
         board = new Board();
-        player1 = new Player(playerOneMarker);
-        player2 = new Player(playerTwoMarker);
-        currentPlayer = player1; // starts
+        currentPlayer = player1;
         scanner = new Scanner(System.in);
     }
+
+private void switchCurrentPlayer() {
+        currentPlayer = (currentPlayer == player1) ? player2 : player1;
+    }
+ public static void main(String[] args) {
+        TicTacToe game = new TicTacToe('X', 'O');
+    }
+}
 
    public void start() {
         boolean gameIsRunning = true;
@@ -88,4 +102,5 @@ public class TicTacToe {
             game.start();
         }
     }
+  
 }
