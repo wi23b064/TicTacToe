@@ -1,18 +1,30 @@
 package org.example;
+import org.junit.Test;
+import org.junit.Before;
+import static org.junit.Assert.*;
 
-import org.junit.jupiter.api.Test;
+public class PlayerTest {
 
-import static org.junit.jupiter.api.Assertions.*;
+    private Player player1;
+    private Player player2;
 
-class PlayerTest {
-    @Test
-    public void testGetMarker() {
-        // Create a Player instance with marker 'X'
-        Player playerX = new Player('X');
-        assertEquals('X', playerX.getMarker());
-
-        // Create a Player instance with marker 'O'
-        Player playerO = new Player('O');
-        assertEquals('O', playerO.getMarker());
+    @Before
+    public void setUp(){
+        player1 = new Player('X');
+        player2 = new Player('O');
     }
+
+
+
+    @Test
+    public void testGetX() {
+        assertEquals('X', player1.getMarker());
+    }
+
+    @Test
+    public  void  testGetO(){
+
+        assertEquals('O', player2.getMarker());
+    }
+
 }
