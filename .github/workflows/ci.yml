@@ -8,7 +8,7 @@
 
 
 # Name des Workflows
-name: Java CI with Maven
+name: Continuous Integration
 
 # Definition der Trigger die zum Auslösen führen
 on:
